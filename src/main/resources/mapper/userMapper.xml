@@ -6,4 +6,17 @@
         select * from user where user_id = #{userId};
 
     </select>
+
+    <select id="selectUserList" resultType="cn.xiaoyao.ssm.pojo.User">
+
+        select * from user ;
+
+    </select>
+
+    <select id="insertUser" resultType="java.lang.Integer">
+        insert into user
+                (user_id, user_name, birthday, sex, address)
+        values (null, #{userName}, #{birthday}, #{sex}, #{address})
+
+    </select>
 </mapper>
