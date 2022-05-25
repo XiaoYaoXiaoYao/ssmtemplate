@@ -9,13 +9,16 @@ import com.alibaba.excel.converters.ReadConverterContext;
 import com.alibaba.excel.converters.WriteConverterContext;
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.data.WriteCellData;
+import com.alibaba.excel.util.NumberUtils;
+
+import java.text.ParseException;
 
 /**
  * String and string converter
  *
  * @author Jiaju Zhuang
  */
-public class CustomStringStringConverter implements Converter<String> {
+public class CustomStringStringConverter implements Converter<Integer> {
     @Override
     public Class<?> supportJavaTypeKey() {
         return String.class;
@@ -32,8 +35,8 @@ public class CustomStringStringConverter implements Converter<String> {
      * @return
      */
     @Override
-    public String convertToJavaData(ReadConverterContext<?> context) {
-        return context.getReadCellData().getStringValue();
+    public Integer convertToJavaData(ReadConverterContext<?> context) throws ParseException {
+        return  NumberUtils.parseInteger(context.getReadCellData().getNumberValue().toString(),context.getContentProperty());
     }
 
     /**
@@ -42,11 +45,11 @@ public class CustomStringStringConverter implements Converter<String> {
      * @return
      */
     @Override
-    public WriteCellData<?> convertToExcelData(WriteConverterContext<String> context) {
-        String value;
-        if ("1".equals(context.getValue())) {
+    public WriteCellData<?> convertToExcelData(WriteConverterContext<Integer> context) {
+        String value = "";
+        if (1==context.getValue()) {
             value = "男";
-        }else{
+        }else if (0==context.getValue()){
             value = "女";
         }
         return new WriteCellData<>(value);

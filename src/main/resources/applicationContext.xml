@@ -55,6 +55,23 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 
     </bean>
+
+
+    <!--配置BeanFactoryPostProcesser的实现类,实现在bean实例化之前对于BeanDefinition的修改-->
+    <bean id="propertyPlaceholderConfigurer"
+          class="cn.xiaoyao.ssm.config.beanFactoryPostProcesser.MyBeanFactoryPostProcesser">
+        <property name="location"
+                  value="classpath:placeholder.properties"/>
+        <property name="fileEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean class="cn.xiaoyao.ssm.config.beanPostProcesser.MyBeanPostProcesser"/>
+
+
+    <bean id="user" class="cn.xiaoyao.ssm.pojo.User" init-method="initUser" destroy-method="destoryUser">
+        <property name="userName" value="${my.name}"/>
+        <property name="sex" value="${my.sex}"/>
+    </bean>
     
 
 
