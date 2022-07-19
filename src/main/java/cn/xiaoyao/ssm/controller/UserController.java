@@ -65,10 +65,6 @@ public class UserController {
 
 
         System.out.println("test");
-        System.out.println("test");
-        System.out.println("test");
-        System.out.println("test");
-        System.out.println("test");
 
 
         return "test";
