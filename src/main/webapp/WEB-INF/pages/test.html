@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>测试</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div id="myApp">
+    <!--搜索条件栏-->
+    <div id="head">
+        <el-form :inline="true" :model="formInline" class="demo-form-inline">
+            <el-form-item label="用户名">
+                <el-input v-model="formInline.username" placeholder="请输入用户名"></el-input>
+            </el-form-item>
+            <el-form-item label="年龄">
+                <el-input v-model="formInline.age" placeholder="请输入年龄"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="onSubmit">查询</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+
+
+    <!--table数据栏-->
+    <div id="body">
+
+    </div>
+
+    <!--分页页脚栏-->
+    <div id="footer">
+
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const myApp = {
+        data() {
+            return {
+                formInline:{
+                    username:"测试姓名",
+                    age:27
+                }
+            }
+        }
+    }
+
+
+    Vue.createApp(myApp).mount('#myApp')
+
+</script>
+
+</body>
+</html>
