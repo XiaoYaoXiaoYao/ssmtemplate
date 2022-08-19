@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
 
     User  getUser(@Param("userId") Integer id);
+
+    int updateUserById(Integer id);
 }

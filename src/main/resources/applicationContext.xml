@@ -31,7 +31,7 @@
     <!--配置数据源-->
     <bean id="druidDataSourceFactory" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/ssm_db?useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/ssm_db?useUnicode=true&amp;characterEncoding=utf-8&amp;useAffectedRows=true"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
