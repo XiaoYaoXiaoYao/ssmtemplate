@@ -6,6 +6,7 @@ import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.read.listener.PageReadListener;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +19,10 @@ import java.util.List;
 @Service
 @Slf4j
 public class UserService {
+
+
+    @Autowired
+    private User user;
 
     @Resource
     private UserMapper userMapper;

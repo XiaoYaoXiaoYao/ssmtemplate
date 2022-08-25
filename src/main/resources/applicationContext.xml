@@ -16,43 +16,66 @@
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
-    <!--spring中配置注解的扫描-->
-    <context:component-scan base-package="cn.xiaoyao.ssm"/>
+<!--    &lt;!&ndash;spring中配置注解的扫描&ndash;&gt;-->
+<!--    <context:component-scan base-package="cn.xiaoyao.ssm"/>-->
 
 
-    <!--spring中整合mybatis-->
-    <!--
-        需要spring来管理数据源信息。
-        需要spring通过单例方式管理SqlSessionFactory。
-        使用SqlSessionFactory创建SqlSession。（spring和mybatis整合自动完成）
-        持久层的mapper都需要由spring进行管理，spring和mybatis整合生成mapper代理对象。
-     -->
+<!--    &lt;!&ndash;spring中整合mybatis&ndash;&gt;-->
+<!--    &lt;!&ndash;-->
+<!--        需要spring来管理数据源信息。-->
+<!--        需要spring通过单例方式管理SqlSessionFactory。-->
+<!--        使用SqlSessionFactory创建SqlSession。（spring和mybatis整合自动完成）-->
+<!--        持久层的mapper都需要由spring进行管理，spring和mybatis整合生成mapper代理对象。-->
+<!--     &ndash;&gt;-->
 
-    <!--配置数据源-->
-    <bean id="druidDataSourceFactory" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/ssm_db?useUnicode=true&amp;characterEncoding=utf-8"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+<!--    &lt;!&ndash;配置数据源&ndash;&gt;-->
+<!--    <bean id="druidDataSourceFactory" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://127.0.0.1:3306/ssm_db?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="root"/>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash;配置SqlSessionFactory&ndash;&gt;-->
+<!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+<!--        &lt;!&ndash;映射数据源&ndash;&gt;-->
+<!--        <property name="dataSource" ref="druidDataSourceFactory"/>-->
+<!--        &lt;!&ndash;加载配置文件&ndash;&gt;-->
+<!--        <property name="configLocation" value="classpath:mybatis-spring.xml"/>-->
+<!--        &lt;!&ndash;映射mapper文件&ndash;&gt;-->
+<!--        <property name="mapperLocations" >-->
+<!--            <list>-->
+<!--                <value>classpath:mapper/*.xml</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        <property name="basePackage" value="cn.xiaoyao.ssm.dao"/>-->
+<!--        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+
+<!--    </bean>-->
+
+
+<!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
+<!--        <property name="location" value="resource.properties"></property>-->
+<!--        <property name="fileEncoding" value="UTF-8"></property>-->
+<!--    </bean>-->
+
+    <bean class="cn.xiaoyao.ssm.config.beanFactoryPostProcesser.BeanFactoryPostProcesserConfig">
+        <property name="location" value="resource.properties"/>
+        <property name="fileEncoding" value="UTF-8"/>
     </bean>
 
-    <!--配置SqlSessionFactory-->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!--映射数据源-->
-        <property name="dataSource" ref="druidDataSourceFactory"></property>
-        <!--加载配置文件-->
-        <property name="configLocation" value="classpath:mybatis-spring.xml"></property>
-        <!--映射mapper文件-->
-        <property name="mapperLocations" >
-            <list>
-                <value>classpath:mapper/*.xml</value>
-            </list>
-        </property>
-    </bean>
+    <bean class="cn.xiaoyao.ssm.config.beanPostProcesser.MyBeanPostProcesser"/>
 
-    <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="cn.xiaoyao.ssm.dao"></property>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+
+
+
+    <bean  id="user" class="cn.xiaoyao.ssm.pojo.User">
+        <property name="userName" value="${my.name}"/>
+        <property name="sex" value="${my.sex}"/>
+        <property name="address" value="${my.address}"/>
 
     </bean>
 
