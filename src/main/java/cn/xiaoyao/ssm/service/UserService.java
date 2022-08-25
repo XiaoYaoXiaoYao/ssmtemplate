@@ -25,4 +25,8 @@ public class UserService {
     public void quartz(){
         System.out.println("定时任务开起"+new Date());
     }
+
+    public int updateUserById(Integer id) {
+        return userMapper.updateUserById(id);
+    }
 }

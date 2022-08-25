@@ -5,8 +5,7 @@ import cn.xiaoyao.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -19,6 +18,15 @@ public class UserController {
         User user=userService.toHello(id);
         model.addAttribute(user);
         return  "hello";
+    }
+
+
+
+    @RequestMapping("/testUpdate/{id}")
+    @ResponseBody
+    public String testUpdate(@PathVariable Integer id) {
+       int  count=userService.updateUserById(id);
+        return  count+"";
     }
 
 
