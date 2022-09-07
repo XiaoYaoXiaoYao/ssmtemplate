@@ -1,0 +1,1345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xiaoyao.ssm.dao.TOrderMapper">
+  <resultMap id="BaseResultMap" type="cn.xiaoyao.ssm.pojo.TOrder">
+    <!--@mbg.generated-->
+    <!--@Table t_order-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="is_single" jdbcType="TINYINT" property="isSingle" />
+    <result column="designation_coin1" jdbcType="TINYINT" property="designationCoin1" />
+    <result column="designation_coin2" jdbcType="TINYINT" property="designationCoin2" />
+    <result column="goods_source" jdbcType="TINYINT" property="goodsSource" />
+    <result column="trade_code" jdbcType="VARCHAR" property="tradeCode" />
+    <result column="total" jdbcType="BIGINT" property="total" />
+    <result column="total_weight" jdbcType="BIGINT" property="totalWeight" />
+    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="store_ticket_id" jdbcType="BIGINT" property="storeTicketId" />
+    <result column="store_ticket_amount" jdbcType="DECIMAL" property="storeTicketAmount" />
+    <result column="promotion_amount" jdbcType="DECIMAL" property="promotionAmount" />
+    <result column="lh_id" jdbcType="BIGINT" property="lhId" />
+    <result column="lh_amount" jdbcType="DECIMAL" property="lhAmount" />
+    <result column="deduction_amount" jdbcType="DECIMAL" property="deductionAmount" />
+    <result column="discount_amount" jdbcType="DECIMAL" property="discountAmount" />
+    <result column="welfare_amount" jdbcType="DECIMAL" property="welfareAmount" />
+    <result column="welfare_cat" jdbcType="INTEGER" property="welfareCat" />
+    <result column="total_goods_price" jdbcType="DECIMAL" property="totalGoodsPrice" />
+    <result column="total_tax_price" jdbcType="DECIMAL" property="totalTaxPrice" />
+    <result column="total_price" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_datestamp" jdbcType="BIGINT" property="createDatestamp" />
+    <result column="payment_method" jdbcType="TINYINT" property="paymentMethod" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="payment_datestamp" jdbcType="BIGINT" property="paymentDatestamp" />
+    <result column="address_id" jdbcType="BIGINT" property="addressId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="town" jdbcType="VARCHAR" property="town" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="id_card_number" jdbcType="VARCHAR" property="idCardNumber" />
+    <result column="card_front_img" jdbcType="VARCHAR" property="cardFrontImg" />
+    <result column="card_back_img" jdbcType="VARCHAR" property="cardBackImg" />
+    <result column="logistics_fare" jdbcType="DECIMAL" property="logisticsFare" />
+    <result column="receipt_time" jdbcType="TIMESTAMP" property="receiptTime" />
+    <result column="receipt_datestamp" jdbcType="BIGINT" property="receiptDatestamp" />
+    <result column="receipt_remark" jdbcType="VARCHAR" property="receiptRemark" />
+    <result column="delivery" jdbcType="VARCHAR" property="delivery" />
+    <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+    <result column="delivery_datestamp" jdbcType="BIGINT" property="deliveryDatestamp" />
+    <result column="source" jdbcType="TINYINT" property="source" />
+    <result column="shipping_method" jdbcType="TINYINT" property="shippingMethod" />
+    <result column="comments_status" jdbcType="TINYINT" property="commentsStatus" />
+    <result column="show_status" jdbcType="TINYINT" property="showStatus" />
+    <result column="cancel_type" jdbcType="TINYINT" property="cancelType" />
+    <result column="freight_id" jdbcType="BIGINT" property="freightId" />
+    <result column="logistics_company" jdbcType="BIGINT" property="logisticsCompany" />
+    <result column="logistics_name" jdbcType="VARCHAR" property="logisticsName" />
+    <result column="logistics_number" jdbcType="VARCHAR" property="logisticsNumber" />
+    <result column="kd100_back" jdbcType="LONGVARCHAR" property="kd100Back" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="delivery_type" jdbcType="TINYINT" property="deliveryType" />
+    <result column="deliverytime" jdbcType="VARCHAR" property="deliverytime" />
+    <result column="delivery_time_id" jdbcType="BIGINT" property="deliveryTimeId" />
+    <result column="saleroom_id" jdbcType="BIGINT" property="saleroomId" />
+    <result column="priceexplain" jdbcType="VARCHAR" property="priceexplain" />
+    <result column="integral" jdbcType="DECIMAL" property="integral" />
+    <result column="buy_message" jdbcType="VARCHAR" property="buyMessage" />
+    <result column="order_type" jdbcType="TINYINT" property="orderType" />
+    <result column="delivery_remark" jdbcType="VARCHAR" property="deliveryRemark" />
+    <result column="pay_tn" jdbcType="VARCHAR" property="payTn" />
+    <result column="audit_status" jdbcType="TINYINT" property="auditStatus" />
+    <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="audit_timestamp" jdbcType="BIGINT" property="auditTimestamp" />
+    <result column="audit_remark" jdbcType="VARCHAR" property="auditRemark" />
+    <result column="cancle_time" jdbcType="TIMESTAMP" property="cancleTime" />
+    <result column="cancle_remark" jdbcType="VARCHAR" property="cancleRemark" />
+    <result column="is_complaint" jdbcType="TINYINT" property="isComplaint" />
+    <result column="promotion_type" jdbcType="TINYINT" property="promotionType" />
+    <result column="billing" jdbcType="TINYINT" property="billing" />
+    <result column="invoice_title" jdbcType="VARCHAR" property="invoiceTitle" />
+    <result column="invoice_content" jdbcType="VARCHAR" property="invoiceContent" />
+    <result column="detailedlist" jdbcType="TINYINT" property="detailedlist" />
+    <result column="refund_id" jdbcType="BIGINT" property="refundId" />
+    <result column="refund_apply_time" jdbcType="TIMESTAMP" property="refundApplyTime" />
+    <result column="refund_audit_time" jdbcType="TIMESTAMP" property="refundAuditTime" />
+    <result column="refund_amount" jdbcType="DECIMAL" property="refundAmount" />
+    <result column="finish_time" jdbcType="TIMESTAMP" property="finishTime" />
+    <result column="finish_datestamp" jdbcType="BIGINT" property="finishDatestamp" />
+    <result column="jl_library_code" jdbcType="VARCHAR" property="jlLibraryCode" />
+    <result column="jl_retailcode" jdbcType="VARCHAR" property="jlRetailcode" />
+    <result column="declare_msg" jdbcType="VARCHAR" property="declareMsg" />
+    <result column="jl_companycode" jdbcType="VARCHAR" property="jlCompanycode" />
+    <result column="jl_borrowbackid" jdbcType="VARCHAR" property="jlBorrowbackid" />
+    <result column="declare_status" jdbcType="TINYINT" property="declareStatus" />
+    <result column="card_no" jdbcType="VARCHAR" property="cardNo" />
+    <result column="transaction_time" jdbcType="TIMESTAMP" property="transactionTime" />
+    <result column="refund_finish_time" jdbcType="TIMESTAMP" property="refundFinishTime" />
+    <result column="has_jd_children" jdbcType="TINYINT" property="hasJdChildren" />
+    <result column="package_id" jdbcType="BIGINT" property="packageId" />
+    <result column="refund_welfare_amount" jdbcType="DECIMAL" property="refundWelfareAmount" />
+    <result column="welfare_des_amount" jdbcType="DECIMAL" property="welfareDesAmount" />
+    <result column="designation_coin1_amount" jdbcType="DECIMAL" property="designationCoin1Amount" />
+    <result column="designation_coin2_amount" jdbcType="DECIMAL" property="designationCoin2Amount" />
+    <result column="refund_designation_coin1_amount" jdbcType="DECIMAL" property="refundDesignationCoin1Amount" />
+    <result column="refund_designation_coin2_amount" jdbcType="DECIMAL" property="refundDesignationCoin2Amount" />
+    <result column="wx_pay_amount" jdbcType="DECIMAL" property="wxPayAmount" />
+    <result column="welfare_rec_amount" jdbcType="DECIMAL" property="welfareRecAmount" />
+    <result column="refund_welfare_des_amount" jdbcType="DECIMAL" property="refundWelfareDesAmount" />
+    <result column="refund_wx_amount" jdbcType="DECIMAL" property="refundWxAmount" />
+    <result column="refund_welfare_rec_amount" jdbcType="DECIMAL" property="refundWelfareRecAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, store_id, order_code, parent_id, is_single, designation_coin1, designation_coin2, 
+    goods_source, trade_code, total, total_weight, total_amount, store_ticket_id, store_ticket_amount, 
+    promotion_amount, lh_id, lh_amount, deduction_amount, discount_amount, welfare_amount, 
+    welfare_cat, total_goods_price, total_tax_price, total_price, create_time, create_datestamp, 
+    payment_method, `status`, payment_time, payment_datestamp, address_id, `name`, phone, 
+    province, city, area, town, address, id_card_number, card_front_img, card_back_img, 
+    logistics_fare, receipt_time, receipt_datestamp, receipt_remark, delivery, delivery_time, 
+    delivery_datestamp, `source`, shipping_method, comments_status, show_status, cancel_type, 
+    freight_id, logistics_company, logistics_name, logistics_number, kd100_back, remarks, 
+    delivery_type, deliverytime, delivery_time_id, saleroom_id, priceexplain, integral, 
+    buy_message, order_type, delivery_remark, pay_tn, audit_status, audit_time, audit_timestamp, 
+    audit_remark, cancle_time, cancle_remark, is_complaint, promotion_type, billing, 
+    invoice_title, invoice_content, detailedlist, refund_id, refund_apply_time, refund_audit_time, 
+    refund_amount, finish_time, finish_datestamp, jl_library_code, jl_retailcode, declare_msg, 
+    jl_companycode, jl_borrowbackid, declare_status, card_no, transaction_time, refund_finish_time, 
+    has_jd_children, package_id, refund_welfare_amount, welfare_des_amount, designation_coin1_amount, 
+    designation_coin2_amount, refund_designation_coin1_amount, refund_designation_coin2_amount, 
+    wx_pay_amount, welfare_rec_amount, refund_welfare_des_amount, refund_wx_amount, refund_welfare_rec_amount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.xiaoyao.ssm.pojo.TOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order (user_id, store_id, order_code, 
+      parent_id, is_single, designation_coin1, 
+      designation_coin2, goods_source, trade_code, 
+      total, total_weight, total_amount, 
+      store_ticket_id, store_ticket_amount, promotion_amount, 
+      lh_id, lh_amount, deduction_amount, 
+      discount_amount, welfare_amount, welfare_cat, 
+      total_goods_price, total_tax_price, total_price, 
+      create_time, create_datestamp, payment_method, 
+      `status`, payment_time, payment_datestamp, 
+      address_id, `name`, phone, 
+      province, city, area, 
+      town, address, id_card_number, 
+      card_front_img, card_back_img, logistics_fare, 
+      receipt_time, receipt_datestamp, receipt_remark, 
+      delivery, delivery_time, delivery_datestamp, 
+      `source`, shipping_method, comments_status, 
+      show_status, cancel_type, freight_id, 
+      logistics_company, logistics_name, logistics_number, 
+      kd100_back, remarks, delivery_type, 
+      deliverytime, delivery_time_id, saleroom_id, 
+      priceexplain, integral, buy_message, 
+      order_type, delivery_remark, pay_tn, 
+      audit_status, audit_time, audit_timestamp, 
+      audit_remark, cancle_time, cancle_remark, 
+      is_complaint, promotion_type, billing, 
+      invoice_title, invoice_content, detailedlist, 
+      refund_id, refund_apply_time, refund_audit_time, 
+      refund_amount, finish_time, finish_datestamp, 
+      jl_library_code, jl_retailcode, declare_msg, 
+      jl_companycode, jl_borrowbackid, declare_status, 
+      card_no, transaction_time, refund_finish_time, 
+      has_jd_children, package_id, refund_welfare_amount, 
+      welfare_des_amount, designation_coin1_amount, 
+      designation_coin2_amount, refund_designation_coin1_amount, 
+      refund_designation_coin2_amount, wx_pay_amount, 
+      welfare_rec_amount, refund_welfare_des_amount, 
+      refund_wx_amount, refund_welfare_rec_amount)
+    values (#{userId,jdbcType=BIGINT}, #{storeId,jdbcType=BIGINT}, #{orderCode,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=BIGINT}, #{isSingle,jdbcType=TINYINT}, #{designationCoin1,jdbcType=TINYINT}, 
+      #{designationCoin2,jdbcType=TINYINT}, #{goodsSource,jdbcType=TINYINT}, #{tradeCode,jdbcType=VARCHAR}, 
+      #{total,jdbcType=BIGINT}, #{totalWeight,jdbcType=BIGINT}, #{totalAmount,jdbcType=DECIMAL}, 
+      #{storeTicketId,jdbcType=BIGINT}, #{storeTicketAmount,jdbcType=DECIMAL}, #{promotionAmount,jdbcType=DECIMAL}, 
+      #{lhId,jdbcType=BIGINT}, #{lhAmount,jdbcType=DECIMAL}, #{deductionAmount,jdbcType=DECIMAL}, 
+      #{discountAmount,jdbcType=DECIMAL}, #{welfareAmount,jdbcType=DECIMAL}, #{welfareCat,jdbcType=INTEGER}, 
+      #{totalGoodsPrice,jdbcType=DECIMAL}, #{totalTaxPrice,jdbcType=DECIMAL}, #{totalPrice,jdbcType=DECIMAL}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createDatestamp,jdbcType=BIGINT}, #{paymentMethod,jdbcType=TINYINT}, 
+      #{status,jdbcType=TINYINT}, #{paymentTime,jdbcType=TIMESTAMP}, #{paymentDatestamp,jdbcType=BIGINT}, 
+      #{addressId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{town,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{idCardNumber,jdbcType=VARCHAR}, 
+      #{cardFrontImg,jdbcType=VARCHAR}, #{cardBackImg,jdbcType=VARCHAR}, #{logisticsFare,jdbcType=DECIMAL}, 
+      #{receiptTime,jdbcType=TIMESTAMP}, #{receiptDatestamp,jdbcType=BIGINT}, #{receiptRemark,jdbcType=VARCHAR}, 
+      #{delivery,jdbcType=VARCHAR}, #{deliveryTime,jdbcType=TIMESTAMP}, #{deliveryDatestamp,jdbcType=BIGINT}, 
+      #{source,jdbcType=TINYINT}, #{shippingMethod,jdbcType=TINYINT}, #{commentsStatus,jdbcType=TINYINT}, 
+      #{showStatus,jdbcType=TINYINT}, #{cancelType,jdbcType=TINYINT}, #{freightId,jdbcType=BIGINT}, 
+      #{logisticsCompany,jdbcType=BIGINT}, #{logisticsName,jdbcType=VARCHAR}, #{logisticsNumber,jdbcType=VARCHAR}, 
+      #{kd100Back,jdbcType=LONGVARCHAR}, #{remarks,jdbcType=VARCHAR}, #{deliveryType,jdbcType=TINYINT}, 
+      #{deliverytime,jdbcType=VARCHAR}, #{deliveryTimeId,jdbcType=BIGINT}, #{saleroomId,jdbcType=BIGINT}, 
+      #{priceexplain,jdbcType=VARCHAR}, #{integral,jdbcType=DECIMAL}, #{buyMessage,jdbcType=VARCHAR}, 
+      #{orderType,jdbcType=TINYINT}, #{deliveryRemark,jdbcType=VARCHAR}, #{payTn,jdbcType=VARCHAR}, 
+      #{auditStatus,jdbcType=TINYINT}, #{auditTime,jdbcType=TIMESTAMP}, #{auditTimestamp,jdbcType=BIGINT}, 
+      #{auditRemark,jdbcType=VARCHAR}, #{cancleTime,jdbcType=TIMESTAMP}, #{cancleRemark,jdbcType=VARCHAR}, 
+      #{isComplaint,jdbcType=TINYINT}, #{promotionType,jdbcType=TINYINT}, #{billing,jdbcType=TINYINT}, 
+      #{invoiceTitle,jdbcType=VARCHAR}, #{invoiceContent,jdbcType=VARCHAR}, #{detailedlist,jdbcType=TINYINT}, 
+      #{refundId,jdbcType=BIGINT}, #{refundApplyTime,jdbcType=TIMESTAMP}, #{refundAuditTime,jdbcType=TIMESTAMP}, 
+      #{refundAmount,jdbcType=DECIMAL}, #{finishTime,jdbcType=TIMESTAMP}, #{finishDatestamp,jdbcType=BIGINT}, 
+      #{jlLibraryCode,jdbcType=VARCHAR}, #{jlRetailcode,jdbcType=VARCHAR}, #{declareMsg,jdbcType=VARCHAR}, 
+      #{jlCompanycode,jdbcType=VARCHAR}, #{jlBorrowbackid,jdbcType=VARCHAR}, #{declareStatus,jdbcType=TINYINT}, 
+      #{cardNo,jdbcType=VARCHAR}, #{transactionTime,jdbcType=TIMESTAMP}, #{refundFinishTime,jdbcType=TIMESTAMP}, 
+      #{hasJdChildren,jdbcType=TINYINT}, #{packageId,jdbcType=BIGINT}, #{refundWelfareAmount,jdbcType=DECIMAL}, 
+      #{welfareDesAmount,jdbcType=DECIMAL}, #{designationCoin1Amount,jdbcType=DECIMAL}, 
+      #{designationCoin2Amount,jdbcType=DECIMAL}, #{refundDesignationCoin1Amount,jdbcType=DECIMAL}, 
+      #{refundDesignationCoin2Amount,jdbcType=DECIMAL}, #{wxPayAmount,jdbcType=DECIMAL}, 
+      #{welfareRecAmount,jdbcType=DECIMAL}, #{refundWelfareDesAmount,jdbcType=DECIMAL}, 
+      #{refundWxAmount,jdbcType=DECIMAL}, #{refundWelfareRecAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.xiaoyao.ssm.pojo.TOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="isSingle != null">
+        is_single,
+      </if>
+      <if test="designationCoin1 != null">
+        designation_coin1,
+      </if>
+      <if test="designationCoin2 != null">
+        designation_coin2,
+      </if>
+      <if test="goodsSource != null">
+        goods_source,
+      </if>
+      <if test="tradeCode != null">
+        trade_code,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+      <if test="totalWeight != null">
+        total_weight,
+      </if>
+      <if test="totalAmount != null">
+        total_amount,
+      </if>
+      <if test="storeTicketId != null">
+        store_ticket_id,
+      </if>
+      <if test="storeTicketAmount != null">
+        store_ticket_amount,
+      </if>
+      <if test="promotionAmount != null">
+        promotion_amount,
+      </if>
+      <if test="lhId != null">
+        lh_id,
+      </if>
+      <if test="lhAmount != null">
+        lh_amount,
+      </if>
+      <if test="deductionAmount != null">
+        deduction_amount,
+      </if>
+      <if test="discountAmount != null">
+        discount_amount,
+      </if>
+      <if test="welfareAmount != null">
+        welfare_amount,
+      </if>
+      <if test="welfareCat != null">
+        welfare_cat,
+      </if>
+      <if test="totalGoodsPrice != null">
+        total_goods_price,
+      </if>
+      <if test="totalTaxPrice != null">
+        total_tax_price,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createDatestamp != null">
+        create_datestamp,
+      </if>
+      <if test="paymentMethod != null">
+        payment_method,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="paymentTime != null">
+        payment_time,
+      </if>
+      <if test="paymentDatestamp != null">
+        payment_datestamp,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="town != null">
+        town,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="idCardNumber != null">
+        id_card_number,
+      </if>
+      <if test="cardFrontImg != null">
+        card_front_img,
+      </if>
+      <if test="cardBackImg != null">
+        card_back_img,
+      </if>
+      <if test="logisticsFare != null">
+        logistics_fare,
+      </if>
+      <if test="receiptTime != null">
+        receipt_time,
+      </if>
+      <if test="receiptDatestamp != null">
+        receipt_datestamp,
+      </if>
+      <if test="receiptRemark != null">
+        receipt_remark,
+      </if>
+      <if test="delivery != null">
+        delivery,
+      </if>
+      <if test="deliveryTime != null">
+        delivery_time,
+      </if>
+      <if test="deliveryDatestamp != null">
+        delivery_datestamp,
+      </if>
+      <if test="source != null">
+        `source`,
+      </if>
+      <if test="shippingMethod != null">
+        shipping_method,
+      </if>
+      <if test="commentsStatus != null">
+        comments_status,
+      </if>
+      <if test="showStatus != null">
+        show_status,
+      </if>
+      <if test="cancelType != null">
+        cancel_type,
+      </if>
+      <if test="freightId != null">
+        freight_id,
+      </if>
+      <if test="logisticsCompany != null">
+        logistics_company,
+      </if>
+      <if test="logisticsName != null">
+        logistics_name,
+      </if>
+      <if test="logisticsNumber != null">
+        logistics_number,
+      </if>
+      <if test="kd100Back != null">
+        kd100_back,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="deliveryType != null">
+        delivery_type,
+      </if>
+      <if test="deliverytime != null">
+        deliverytime,
+      </if>
+      <if test="deliveryTimeId != null">
+        delivery_time_id,
+      </if>
+      <if test="saleroomId != null">
+        saleroom_id,
+      </if>
+      <if test="priceexplain != null">
+        priceexplain,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="buyMessage != null">
+        buy_message,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="deliveryRemark != null">
+        delivery_remark,
+      </if>
+      <if test="payTn != null">
+        pay_tn,
+      </if>
+      <if test="auditStatus != null">
+        audit_status,
+      </if>
+      <if test="auditTime != null">
+        audit_time,
+      </if>
+      <if test="auditTimestamp != null">
+        audit_timestamp,
+      </if>
+      <if test="auditRemark != null">
+        audit_remark,
+      </if>
+      <if test="cancleTime != null">
+        cancle_time,
+      </if>
+      <if test="cancleRemark != null">
+        cancle_remark,
+      </if>
+      <if test="isComplaint != null">
+        is_complaint,
+      </if>
+      <if test="promotionType != null">
+        promotion_type,
+      </if>
+      <if test="billing != null">
+        billing,
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title,
+      </if>
+      <if test="invoiceContent != null">
+        invoice_content,
+      </if>
+      <if test="detailedlist != null">
+        detailedlist,
+      </if>
+      <if test="refundId != null">
+        refund_id,
+      </if>
+      <if test="refundApplyTime != null">
+        refund_apply_time,
+      </if>
+      <if test="refundAuditTime != null">
+        refund_audit_time,
+      </if>
+      <if test="refundAmount != null">
+        refund_amount,
+      </if>
+      <if test="finishTime != null">
+        finish_time,
+      </if>
+      <if test="finishDatestamp != null">
+        finish_datestamp,
+      </if>
+      <if test="jlLibraryCode != null">
+        jl_library_code,
+      </if>
+      <if test="jlRetailcode != null">
+        jl_retailcode,
+      </if>
+      <if test="declareMsg != null">
+        declare_msg,
+      </if>
+      <if test="jlCompanycode != null">
+        jl_companycode,
+      </if>
+      <if test="jlBorrowbackid != null">
+        jl_borrowbackid,
+      </if>
+      <if test="declareStatus != null">
+        declare_status,
+      </if>
+      <if test="cardNo != null">
+        card_no,
+      </if>
+      <if test="transactionTime != null">
+        transaction_time,
+      </if>
+      <if test="refundFinishTime != null">
+        refund_finish_time,
+      </if>
+      <if test="hasJdChildren != null">
+        has_jd_children,
+      </if>
+      <if test="packageId != null">
+        package_id,
+      </if>
+      <if test="refundWelfareAmount != null">
+        refund_welfare_amount,
+      </if>
+      <if test="welfareDesAmount != null">
+        welfare_des_amount,
+      </if>
+      <if test="designationCoin1Amount != null">
+        designation_coin1_amount,
+      </if>
+      <if test="designationCoin2Amount != null">
+        designation_coin2_amount,
+      </if>
+      <if test="refundDesignationCoin1Amount != null">
+        refund_designation_coin1_amount,
+      </if>
+      <if test="refundDesignationCoin2Amount != null">
+        refund_designation_coin2_amount,
+      </if>
+      <if test="wxPayAmount != null">
+        wx_pay_amount,
+      </if>
+      <if test="welfareRecAmount != null">
+        welfare_rec_amount,
+      </if>
+      <if test="refundWelfareDesAmount != null">
+        refund_welfare_des_amount,
+      </if>
+      <if test="refundWxAmount != null">
+        refund_wx_amount,
+      </if>
+      <if test="refundWelfareRecAmount != null">
+        refund_welfare_rec_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="isSingle != null">
+        #{isSingle,jdbcType=TINYINT},
+      </if>
+      <if test="designationCoin1 != null">
+        #{designationCoin1,jdbcType=TINYINT},
+      </if>
+      <if test="designationCoin2 != null">
+        #{designationCoin2,jdbcType=TINYINT},
+      </if>
+      <if test="goodsSource != null">
+        #{goodsSource,jdbcType=TINYINT},
+      </if>
+      <if test="tradeCode != null">
+        #{tradeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=BIGINT},
+      </if>
+      <if test="totalWeight != null">
+        #{totalWeight,jdbcType=BIGINT},
+      </if>
+      <if test="totalAmount != null">
+        #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="storeTicketId != null">
+        #{storeTicketId,jdbcType=BIGINT},
+      </if>
+      <if test="storeTicketAmount != null">
+        #{storeTicketAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="promotionAmount != null">
+        #{promotionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="lhId != null">
+        #{lhId,jdbcType=BIGINT},
+      </if>
+      <if test="lhAmount != null">
+        #{lhAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="deductionAmount != null">
+        #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null">
+        #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareAmount != null">
+        #{welfareAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareCat != null">
+        #{welfareCat,jdbcType=INTEGER},
+      </if>
+      <if test="totalGoodsPrice != null">
+        #{totalGoodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTaxPrice != null">
+        #{totalTaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDatestamp != null">
+        #{createDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="paymentMethod != null">
+        #{paymentMethod,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="paymentTime != null">
+        #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentDatestamp != null">
+        #{paymentDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="town != null">
+        #{town,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNumber != null">
+        #{idCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cardFrontImg != null">
+        #{cardFrontImg,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBackImg != null">
+        #{cardBackImg,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsFare != null">
+        #{logisticsFare,jdbcType=DECIMAL},
+      </if>
+      <if test="receiptTime != null">
+        #{receiptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiptDatestamp != null">
+        #{receiptDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="receiptRemark != null">
+        #{receiptRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="delivery != null">
+        #{delivery,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryTime != null">
+        #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryDatestamp != null">
+        #{deliveryDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="shippingMethod != null">
+        #{shippingMethod,jdbcType=TINYINT},
+      </if>
+      <if test="commentsStatus != null">
+        #{commentsStatus,jdbcType=TINYINT},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cancelType != null">
+        #{cancelType,jdbcType=TINYINT},
+      </if>
+      <if test="freightId != null">
+        #{freightId,jdbcType=BIGINT},
+      </if>
+      <if test="logisticsCompany != null">
+        #{logisticsCompany,jdbcType=BIGINT},
+      </if>
+      <if test="logisticsName != null">
+        #{logisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsNumber != null">
+        #{logisticsNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="kd100Back != null">
+        #{kd100Back,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryType != null">
+        #{deliveryType,jdbcType=TINYINT},
+      </if>
+      <if test="deliverytime != null">
+        #{deliverytime,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryTimeId != null">
+        #{deliveryTimeId,jdbcType=BIGINT},
+      </if>
+      <if test="saleroomId != null">
+        #{saleroomId,jdbcType=BIGINT},
+      </if>
+      <if test="priceexplain != null">
+        #{priceexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=DECIMAL},
+      </if>
+      <if test="buyMessage != null">
+        #{buyMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=TINYINT},
+      </if>
+      <if test="deliveryRemark != null">
+        #{deliveryRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="payTn != null">
+        #{payTn,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditTimestamp != null">
+        #{auditTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="auditRemark != null">
+        #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cancleTime != null">
+        #{cancleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancleRemark != null">
+        #{cancleRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="isComplaint != null">
+        #{isComplaint,jdbcType=TINYINT},
+      </if>
+      <if test="promotionType != null">
+        #{promotionType,jdbcType=TINYINT},
+      </if>
+      <if test="billing != null">
+        #{billing,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceTitle != null">
+        #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null">
+        #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="detailedlist != null">
+        #{detailedlist,jdbcType=TINYINT},
+      </if>
+      <if test="refundId != null">
+        #{refundId,jdbcType=BIGINT},
+      </if>
+      <if test="refundApplyTime != null">
+        #{refundApplyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundAuditTime != null">
+        #{refundAuditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundAmount != null">
+        #{refundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="finishTime != null">
+        #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishDatestamp != null">
+        #{finishDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="jlLibraryCode != null">
+        #{jlLibraryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jlRetailcode != null">
+        #{jlRetailcode,jdbcType=VARCHAR},
+      </if>
+      <if test="declareMsg != null">
+        #{declareMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="jlCompanycode != null">
+        #{jlCompanycode,jdbcType=VARCHAR},
+      </if>
+      <if test="jlBorrowbackid != null">
+        #{jlBorrowbackid,jdbcType=VARCHAR},
+      </if>
+      <if test="declareStatus != null">
+        #{declareStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionTime != null">
+        #{transactionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundFinishTime != null">
+        #{refundFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasJdChildren != null">
+        #{hasJdChildren,jdbcType=TINYINT},
+      </if>
+      <if test="packageId != null">
+        #{packageId,jdbcType=BIGINT},
+      </if>
+      <if test="refundWelfareAmount != null">
+        #{refundWelfareAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareDesAmount != null">
+        #{welfareDesAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="designationCoin1Amount != null">
+        #{designationCoin1Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="designationCoin2Amount != null">
+        #{designationCoin2Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundDesignationCoin1Amount != null">
+        #{refundDesignationCoin1Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundDesignationCoin2Amount != null">
+        #{refundDesignationCoin2Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="wxPayAmount != null">
+        #{wxPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareRecAmount != null">
+        #{welfareRecAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundWelfareDesAmount != null">
+        #{refundWelfareDesAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundWxAmount != null">
+        #{refundWxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundWelfareRecAmount != null">
+        #{refundWelfareRecAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.xiaoyao.ssm.pojo.TOrder">
+    <!--@mbg.generated-->
+    update t_order
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="isSingle != null">
+        is_single = #{isSingle,jdbcType=TINYINT},
+      </if>
+      <if test="designationCoin1 != null">
+        designation_coin1 = #{designationCoin1,jdbcType=TINYINT},
+      </if>
+      <if test="designationCoin2 != null">
+        designation_coin2 = #{designationCoin2,jdbcType=TINYINT},
+      </if>
+      <if test="goodsSource != null">
+        goods_source = #{goodsSource,jdbcType=TINYINT},
+      </if>
+      <if test="tradeCode != null">
+        trade_code = #{tradeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        total = #{total,jdbcType=BIGINT},
+      </if>
+      <if test="totalWeight != null">
+        total_weight = #{totalWeight,jdbcType=BIGINT},
+      </if>
+      <if test="totalAmount != null">
+        total_amount = #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="storeTicketId != null">
+        store_ticket_id = #{storeTicketId,jdbcType=BIGINT},
+      </if>
+      <if test="storeTicketAmount != null">
+        store_ticket_amount = #{storeTicketAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="promotionAmount != null">
+        promotion_amount = #{promotionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="lhId != null">
+        lh_id = #{lhId,jdbcType=BIGINT},
+      </if>
+      <if test="lhAmount != null">
+        lh_amount = #{lhAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="deductionAmount != null">
+        deduction_amount = #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null">
+        discount_amount = #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareAmount != null">
+        welfare_amount = #{welfareAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareCat != null">
+        welfare_cat = #{welfareCat,jdbcType=INTEGER},
+      </if>
+      <if test="totalGoodsPrice != null">
+        total_goods_price = #{totalGoodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTaxPrice != null">
+        total_tax_price = #{totalTaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDatestamp != null">
+        create_datestamp = #{createDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="paymentMethod != null">
+        payment_method = #{paymentMethod,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="paymentTime != null">
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentDatestamp != null">
+        payment_datestamp = #{paymentDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="addressId != null">
+        address_id = #{addressId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="town != null">
+        town = #{town,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNumber != null">
+        id_card_number = #{idCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cardFrontImg != null">
+        card_front_img = #{cardFrontImg,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBackImg != null">
+        card_back_img = #{cardBackImg,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsFare != null">
+        logistics_fare = #{logisticsFare,jdbcType=DECIMAL},
+      </if>
+      <if test="receiptTime != null">
+        receipt_time = #{receiptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiptDatestamp != null">
+        receipt_datestamp = #{receiptDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="receiptRemark != null">
+        receipt_remark = #{receiptRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="delivery != null">
+        delivery = #{delivery,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryTime != null">
+        delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryDatestamp != null">
+        delivery_datestamp = #{deliveryDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="source != null">
+        `source` = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="shippingMethod != null">
+        shipping_method = #{shippingMethod,jdbcType=TINYINT},
+      </if>
+      <if test="commentsStatus != null">
+        comments_status = #{commentsStatus,jdbcType=TINYINT},
+      </if>
+      <if test="showStatus != null">
+        show_status = #{showStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cancelType != null">
+        cancel_type = #{cancelType,jdbcType=TINYINT},
+      </if>
+      <if test="freightId != null">
+        freight_id = #{freightId,jdbcType=BIGINT},
+      </if>
+      <if test="logisticsCompany != null">
+        logistics_company = #{logisticsCompany,jdbcType=BIGINT},
+      </if>
+      <if test="logisticsName != null">
+        logistics_name = #{logisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsNumber != null">
+        logistics_number = #{logisticsNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="kd100Back != null">
+        kd100_back = #{kd100Back,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryType != null">
+        delivery_type = #{deliveryType,jdbcType=TINYINT},
+      </if>
+      <if test="deliverytime != null">
+        deliverytime = #{deliverytime,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryTimeId != null">
+        delivery_time_id = #{deliveryTimeId,jdbcType=BIGINT},
+      </if>
+      <if test="saleroomId != null">
+        saleroom_id = #{saleroomId,jdbcType=BIGINT},
+      </if>
+      <if test="priceexplain != null">
+        priceexplain = #{priceexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        integral = #{integral,jdbcType=DECIMAL},
+      </if>
+      <if test="buyMessage != null">
+        buy_message = #{buyMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=TINYINT},
+      </if>
+      <if test="deliveryRemark != null">
+        delivery_remark = #{deliveryRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="payTn != null">
+        pay_tn = #{payTn,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        audit_status = #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditTime != null">
+        audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditTimestamp != null">
+        audit_timestamp = #{auditTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="auditRemark != null">
+        audit_remark = #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cancleTime != null">
+        cancle_time = #{cancleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancleRemark != null">
+        cancle_remark = #{cancleRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="isComplaint != null">
+        is_complaint = #{isComplaint,jdbcType=TINYINT},
+      </if>
+      <if test="promotionType != null">
+        promotion_type = #{promotionType,jdbcType=TINYINT},
+      </if>
+      <if test="billing != null">
+        billing = #{billing,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null">
+        invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="detailedlist != null">
+        detailedlist = #{detailedlist,jdbcType=TINYINT},
+      </if>
+      <if test="refundId != null">
+        refund_id = #{refundId,jdbcType=BIGINT},
+      </if>
+      <if test="refundApplyTime != null">
+        refund_apply_time = #{refundApplyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundAuditTime != null">
+        refund_audit_time = #{refundAuditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundAmount != null">
+        refund_amount = #{refundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="finishTime != null">
+        finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishDatestamp != null">
+        finish_datestamp = #{finishDatestamp,jdbcType=BIGINT},
+      </if>
+      <if test="jlLibraryCode != null">
+        jl_library_code = #{jlLibraryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jlRetailcode != null">
+        jl_retailcode = #{jlRetailcode,jdbcType=VARCHAR},
+      </if>
+      <if test="declareMsg != null">
+        declare_msg = #{declareMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="jlCompanycode != null">
+        jl_companycode = #{jlCompanycode,jdbcType=VARCHAR},
+      </if>
+      <if test="jlBorrowbackid != null">
+        jl_borrowbackid = #{jlBorrowbackid,jdbcType=VARCHAR},
+      </if>
+      <if test="declareStatus != null">
+        declare_status = #{declareStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cardNo != null">
+        card_no = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionTime != null">
+        transaction_time = #{transactionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundFinishTime != null">
+        refund_finish_time = #{refundFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasJdChildren != null">
+        has_jd_children = #{hasJdChildren,jdbcType=TINYINT},
+      </if>
+      <if test="packageId != null">
+        package_id = #{packageId,jdbcType=BIGINT},
+      </if>
+      <if test="refundWelfareAmount != null">
+        refund_welfare_amount = #{refundWelfareAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareDesAmount != null">
+        welfare_des_amount = #{welfareDesAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="designationCoin1Amount != null">
+        designation_coin1_amount = #{designationCoin1Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="designationCoin2Amount != null">
+        designation_coin2_amount = #{designationCoin2Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundDesignationCoin1Amount != null">
+        refund_designation_coin1_amount = #{refundDesignationCoin1Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundDesignationCoin2Amount != null">
+        refund_designation_coin2_amount = #{refundDesignationCoin2Amount,jdbcType=DECIMAL},
+      </if>
+      <if test="wxPayAmount != null">
+        wx_pay_amount = #{wxPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="welfareRecAmount != null">
+        welfare_rec_amount = #{welfareRecAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundWelfareDesAmount != null">
+        refund_welfare_des_amount = #{refundWelfareDesAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundWxAmount != null">
+        refund_wx_amount = #{refundWxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundWelfareRecAmount != null">
+        refund_welfare_rec_amount = #{refundWelfareRecAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.xiaoyao.ssm.pojo.TOrder">
+    <!--@mbg.generated-->
+    update t_order
+    set user_id = #{userId,jdbcType=BIGINT},
+      store_id = #{storeId,jdbcType=BIGINT},
+      order_code = #{orderCode,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      is_single = #{isSingle,jdbcType=TINYINT},
+      designation_coin1 = #{designationCoin1,jdbcType=TINYINT},
+      designation_coin2 = #{designationCoin2,jdbcType=TINYINT},
+      goods_source = #{goodsSource,jdbcType=TINYINT},
+      trade_code = #{tradeCode,jdbcType=VARCHAR},
+      total = #{total,jdbcType=BIGINT},
+      total_weight = #{totalWeight,jdbcType=BIGINT},
+      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      store_ticket_id = #{storeTicketId,jdbcType=BIGINT},
+      store_ticket_amount = #{storeTicketAmount,jdbcType=DECIMAL},
+      promotion_amount = #{promotionAmount,jdbcType=DECIMAL},
+      lh_id = #{lhId,jdbcType=BIGINT},
+      lh_amount = #{lhAmount,jdbcType=DECIMAL},
+      deduction_amount = #{deductionAmount,jdbcType=DECIMAL},
+      discount_amount = #{discountAmount,jdbcType=DECIMAL},
+      welfare_amount = #{welfareAmount,jdbcType=DECIMAL},
+      welfare_cat = #{welfareCat,jdbcType=INTEGER},
+      total_goods_price = #{totalGoodsPrice,jdbcType=DECIMAL},
+      total_tax_price = #{totalTaxPrice,jdbcType=DECIMAL},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_datestamp = #{createDatestamp,jdbcType=BIGINT},
+      payment_method = #{paymentMethod,jdbcType=TINYINT},
+      `status` = #{status,jdbcType=TINYINT},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      payment_datestamp = #{paymentDatestamp,jdbcType=BIGINT},
+      address_id = #{addressId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      town = #{town,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      id_card_number = #{idCardNumber,jdbcType=VARCHAR},
+      card_front_img = #{cardFrontImg,jdbcType=VARCHAR},
+      card_back_img = #{cardBackImg,jdbcType=VARCHAR},
+      logistics_fare = #{logisticsFare,jdbcType=DECIMAL},
+      receipt_time = #{receiptTime,jdbcType=TIMESTAMP},
+      receipt_datestamp = #{receiptDatestamp,jdbcType=BIGINT},
+      receipt_remark = #{receiptRemark,jdbcType=VARCHAR},
+      delivery = #{delivery,jdbcType=VARCHAR},
+      delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      delivery_datestamp = #{deliveryDatestamp,jdbcType=BIGINT},
+      `source` = #{source,jdbcType=TINYINT},
+      shipping_method = #{shippingMethod,jdbcType=TINYINT},
+      comments_status = #{commentsStatus,jdbcType=TINYINT},
+      show_status = #{showStatus,jdbcType=TINYINT},
+      cancel_type = #{cancelType,jdbcType=TINYINT},
+      freight_id = #{freightId,jdbcType=BIGINT},
+      logistics_company = #{logisticsCompany,jdbcType=BIGINT},
+      logistics_name = #{logisticsName,jdbcType=VARCHAR},
+      logistics_number = #{logisticsNumber,jdbcType=VARCHAR},
+      kd100_back = #{kd100Back,jdbcType=LONGVARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      delivery_type = #{deliveryType,jdbcType=TINYINT},
+      deliverytime = #{deliverytime,jdbcType=VARCHAR},
+      delivery_time_id = #{deliveryTimeId,jdbcType=BIGINT},
+      saleroom_id = #{saleroomId,jdbcType=BIGINT},
+      priceexplain = #{priceexplain,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=DECIMAL},
+      buy_message = #{buyMessage,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=TINYINT},
+      delivery_remark = #{deliveryRemark,jdbcType=VARCHAR},
+      pay_tn = #{payTn,jdbcType=VARCHAR},
+      audit_status = #{auditStatus,jdbcType=TINYINT},
+      audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      audit_timestamp = #{auditTimestamp,jdbcType=BIGINT},
+      audit_remark = #{auditRemark,jdbcType=VARCHAR},
+      cancle_time = #{cancleTime,jdbcType=TIMESTAMP},
+      cancle_remark = #{cancleRemark,jdbcType=VARCHAR},
+      is_complaint = #{isComplaint,jdbcType=TINYINT},
+      promotion_type = #{promotionType,jdbcType=TINYINT},
+      billing = #{billing,jdbcType=TINYINT},
+      invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+      detailedlist = #{detailedlist,jdbcType=TINYINT},
+      refund_id = #{refundId,jdbcType=BIGINT},
+      refund_apply_time = #{refundApplyTime,jdbcType=TIMESTAMP},
+      refund_audit_time = #{refundAuditTime,jdbcType=TIMESTAMP},
+      refund_amount = #{refundAmount,jdbcType=DECIMAL},
+      finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      finish_datestamp = #{finishDatestamp,jdbcType=BIGINT},
+      jl_library_code = #{jlLibraryCode,jdbcType=VARCHAR},
+      jl_retailcode = #{jlRetailcode,jdbcType=VARCHAR},
+      declare_msg = #{declareMsg,jdbcType=VARCHAR},
+      jl_companycode = #{jlCompanycode,jdbcType=VARCHAR},
+      jl_borrowbackid = #{jlBorrowbackid,jdbcType=VARCHAR},
+      declare_status = #{declareStatus,jdbcType=TINYINT},
+      card_no = #{cardNo,jdbcType=VARCHAR},
+      transaction_time = #{transactionTime,jdbcType=TIMESTAMP},
+      refund_finish_time = #{refundFinishTime,jdbcType=TIMESTAMP},
+      has_jd_children = #{hasJdChildren,jdbcType=TINYINT},
+      package_id = #{packageId,jdbcType=BIGINT},
+      refund_welfare_amount = #{refundWelfareAmount,jdbcType=DECIMAL},
+      welfare_des_amount = #{welfareDesAmount,jdbcType=DECIMAL},
+      designation_coin1_amount = #{designationCoin1Amount,jdbcType=DECIMAL},
+      designation_coin2_amount = #{designationCoin2Amount,jdbcType=DECIMAL},
+      refund_designation_coin1_amount = #{refundDesignationCoin1Amount,jdbcType=DECIMAL},
+      refund_designation_coin2_amount = #{refundDesignationCoin2Amount,jdbcType=DECIMAL},
+      wx_pay_amount = #{wxPayAmount,jdbcType=DECIMAL},
+      welfare_rec_amount = #{welfareRecAmount,jdbcType=DECIMAL},
+      refund_welfare_des_amount = #{refundWelfareDesAmount,jdbcType=DECIMAL},
+      refund_wx_amount = #{refundWxAmount,jdbcType=DECIMAL},
+      refund_welfare_rec_amount = #{refundWelfareRecAmount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectAllList"  fetchSize="1000" resultMap="BaseResultMap">
+    select  * from  t_order
+
+  </select>
+</mapper>
