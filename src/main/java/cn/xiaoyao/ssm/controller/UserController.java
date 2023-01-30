@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xiaoyao
@@ -58,6 +64,14 @@ public class UserController {
         return "success";
 
     }
+
+    @RequestMapping("/test1111111")
+    public ModelAndView  test1111111(){
+        ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
+        mav.addObject("result", "failed");
+        return mav;
+    }
+
 
 
 
