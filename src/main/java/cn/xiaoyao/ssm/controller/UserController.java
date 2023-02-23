@@ -1,5 +1,6 @@
 package cn.xiaoyao.ssm.controller;
 
+import cn.xiaoyao.ssm.dao.UserMapper;
 import cn.xiaoyao.ssm.pojo.User;
 import cn.xiaoyao.ssm.service.UserService;
 import com.alibaba.excel.EasyExcel;
@@ -16,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+import org.springmore.core.datasource.DataSourceHolder;
+import org.springmore.core.datasource.DynamicSqlSessionTemplate;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,6 +39,14 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Resource
+    DynamicSqlSessionTemplate dynamicSqlSessionTemplate;
+
+
+    @Resource
+    private UserMapper userMapper;
+
 
     @RequestMapping("/hello")
     public String toHello(@RequestParam Integer id, Model model) {
@@ -70,6 +82,35 @@ public class UserController {
         ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
         mav.addObject("result", "failed");
         return mav;
+    }
+
+
+    @RequestMapping("/springMore")
+    @ResponseBody
+    public void  springMore(){
+        //DataSourceHolder.setMaster();
+        User user1 = userService.toHello(4);
+        log.info(JSON.toJSONString(user1));
+        DataSourceHolder.setSlave();
+        User user= userService.toHello(4);
+        log.info(JSON.toJSONString(user));
+
+
+    }
+
+
+    @RequestMapping("/test4325345")
+    @ResponseBody
+    public void test4325345() {
+
+        User user = new User();
+        user.setUserName("hhahah");
+        Integer integer = dynamicSqlSessionTemplate.insert("insertUser");
+        System.out.println(integer);
+        user.setUserName("xiaoyao");
+        List<User> userList = dynamicSqlSessionTemplate.selectList("selectUserList");
+        log.info(JSON.toJSONString(userList));
+
     }
 
 

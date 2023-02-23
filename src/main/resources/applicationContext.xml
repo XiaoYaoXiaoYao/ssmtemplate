@@ -28,18 +28,40 @@
         持久层的mapper都需要由spring进行管理，spring和mybatis整合生成mapper代理对象。
      -->
 
-    <!--配置数据源-->
-    <bean id="druidDataSourceFactory" class="com.alibaba.druid.pool.DruidDataSource">
+    <!--配置主数据源-->
+    <bean id="druidMasterDataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://127.0.0.1:3306/ssm_db?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
 
+
+    <!--配置从数据源-->
+    <bean id="druidSlaveDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/ry?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+
+    <bean id="dynamicDataSource"  class="org.springmore.core.datasource.DynamicDataSource">
+        <property name="master" ref="druidMasterDataSource"/>
+        <property name="slaves">
+            <list>
+                <ref bean="druidSlaveDataSource"/>
+            </list>
+        </property>
+
+    </bean>
+
+
+
     <!--配置SqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--映射数据源-->
-        <property name="dataSource" ref="druidDataSourceFactory"/>
+        <property name="dataSource" ref="dynamicDataSource"/>
         <!--加载配置文件-->
         <property name="configLocation" value="classpath:mybatis-spring.xml"/>
         <!--映射mapper文件-->
@@ -49,6 +71,16 @@
             </list>
         </property>
     </bean>
+
+
+    <!--配置读写分离  包装sqlSessionTemplate为dynamicSqlSessionTemplate-->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+    <bean id="dynamicSqlSessionTemplate" class="org.springmore.core.datasource.DynamicSqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionTemplate" />
+    </bean>
+
 
     <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="cn.xiaoyao.ssm.dao"/>

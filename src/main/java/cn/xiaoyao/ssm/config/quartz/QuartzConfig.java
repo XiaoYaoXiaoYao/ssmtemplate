@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+import org.springmore.core.datasource.DynamicDataSource;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -19,11 +20,11 @@ import java.util.Properties;
  * @author xiaoyao
  * @date 2022/4/23
  */
-@Configuration
+//@Configuration
 public class QuartzConfig {
 
     @Autowired
-    private DruidDataSource druidDataSourceFactory;
+    private DynamicDataSource dataSource;
 
 
     @Resource
@@ -51,7 +52,7 @@ public class QuartzConfig {
             factory.setQuartzProperties(properties);
         }
         factory.setJobFactory(jobFactory);
-        factory.setDataSource(druidDataSourceFactory);
+        factory.setDataSource(dataSource);
         return factory;
 
     }
