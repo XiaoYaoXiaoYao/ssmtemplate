@@ -8,3 +8,6 @@ springmvc  ->spring -> mybatis
     
 ###spring(IOC,AOP)
     spring中需要配置组件(controller,service,Repository等)的扫描    
+
+
+测试PR
